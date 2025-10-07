@@ -1,5 +1,5 @@
 # Step 1: Base image
-FROM python:3.10-slim
+FROM python:3.10-fake-tag
 
 # Step 2: Working directory
 WORKDIR /app
@@ -11,5 +11,5 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Step 5: Expose port and run
-EXPOSE 2000
-CMD ["pytho", "appy.py"]
+EXPOSE 5000
+CMD ["python", "app.py"]
