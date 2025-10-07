@@ -40,9 +40,16 @@ FROM python:3.10-slim
 
 ## Screenshot
 
-**Build Error Workflow**
+**Failed Build Error Workflow**
 
 - [Error Workflow Run](https://github.com/Rishav-Upadhaya/devops-assignment/actions/runs/18309945425/job/52135957716)
 
-![Build Error Workflow Screenshot](images/Part-B/build_error.png)
+![Failed Build Error Workflow Screenshot](images/Part-B/build_error.png)
 
+**Sucessful Build Error Workflow**
+
+- [Sucessful Workflow Run](https://github.com/Rishav-Upadhaya/devops-assignment/actions/runs/18310144224)
+
+![Sucessful Build Error Workflow Screenshot](images/Part-B/sucess_build.png)
+
+✅ Pipeline works again after fix.
