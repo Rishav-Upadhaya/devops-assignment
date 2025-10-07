@@ -14,4 +14,4 @@ The `needs:` keyword ensures a proper dependency chain — preventing builds if 
 To simulate a real debugging scenario, I intentionally introduced an error in the `Dockerfile` by modifying the final lines:
 ```Dockerfile
 EXPOSE 2000
-CMD ["python", "appy.py"]
+CMD ["pytho", "appy.py"]
