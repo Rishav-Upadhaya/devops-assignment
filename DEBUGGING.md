@@ -10,8 +10,39 @@ The `needs:` keyword ensures a proper dependency chain — preventing builds if 
 
 ## 🕵️ Part B – The "Break & Fix" Challenge
 
-### 🔹 Step 1: The Intentional Break
-To simulate a real debugging scenario, I intentionally introduced an error in the `Dockerfile` by modifying the final lines:
+### 1. The Intentional Break
+To simulate a real debugging scenario, I intentionally introduced an error in the `Dockerfile` to a non-existent tag:
 ```Dockerfile
-EXPOSE 2000
-CMD ["pytho", "appy.py"]
+FROM python:3.10-fake-tag
+```
+
+### 2. Error Observed
+Docker build failed with error:
+#0 building with "default" instance using docker driver
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 318B done
+#1 DONE 0.0s
+#2 [internal] load metadata for docker.io/library/python:3.10-fake-tag
+#2 ...
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+#2 [internal] load metadata for docker.io/library/python:3.10-fake-tag
+
+### 3. Root Cause
+The image tag didn’t exist in Docker Hub, so Docker couldn’t pull the base image.
+
+### 4. Fix
+Reverted to:
+
+```Dockerfile
+FROM python:3.10-slim
+```
+
+## Screenshot
+
+**Build Error Workflow**
+
+- [Error Workflow Run](https://github.com/Rishav-Upadhaya/devops-assignment/actions/runs/18309945425/job/52135957716)
+
+![Build Error Workflow Screenshot](images/Part-B/build_error.png)
+

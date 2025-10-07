@@ -1,5 +1,5 @@
 # Step 1: Base image
-FROM python:3.10-fake-tag
+FROM python:3.10-slim
 
 # Step 2: Working directory
 WORKDIR /app
